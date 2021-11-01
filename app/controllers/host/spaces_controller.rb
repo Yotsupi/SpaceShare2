@@ -27,7 +27,7 @@ class Host::SpacesController < ApplicationController
 
   private
   def space_params
-    params.require(:space).permit(:name, :address, :detail, :capacity, :open_time, :close_time, :hourly_rate, :image)
+    params.require(:space).permit(:name, :address, :detail, :capacity, :open_time, :close_time, :hourly_rate, :image, :is_active)
   end
 
 end

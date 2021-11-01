@@ -4,4 +4,7 @@
 <br>
 <%= @space.address %>
 <br>
+利用可能時間
+<%= @space.open_time.strftime('%H:%M') %>〜<%= @space.close_time.strftime('%H:%M') %>
+<br>
 <%= link_to "編集する", edit_host_space_path(@space.id), class:"btn btn-success" %>

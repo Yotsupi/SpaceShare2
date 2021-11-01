@@ -17,7 +17,7 @@
           <ul class="navbar-nav ml-auto">
             <% if host_signed_in? %>
             <li class="nav-item">
-              <%= link_to "ログアウト", destroy_guest_session_path, method: :delete, class: 'nav-link text-dark' %>
+              <%= link_to "ログアウト", destroy_host_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               予約一覧
@@ -26,12 +26,24 @@
             <li class="nav-item">
               <%= link_to '新規スペース登録', new_host_space_path, class: 'nav-link text-dark' %>
             </li>
-            <% else %>
+            <% elsif guest_signed_in? %>
             <li class="nav-item">
-              <%= link_to "新規登録", new_host_registration_path, class: 'nav-link text-dark' %>
+              <%= link_to "ログアウト", destroy_guest_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "ログイン", new_host_session_path, class: 'nav-link text-dark' %>
+              予約一覧
+              <%#= link_to 'スペース一覧', host_spaces_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              マイページ
+              <%#= link_to 'マイページ', new_host_space_path, class: 'nav-link text-dark' %>
+            </li>
+            <% else %>
+            <li class="nav-item">
+              <%= link_to "ゲストログイン", new_guest_session_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ホストログイン", new_host_session_path, class: 'nav-link text-dark' %>
             </li>
             <% end %>
           </ul>
