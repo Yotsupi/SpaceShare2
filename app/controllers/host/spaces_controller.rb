@@ -7,11 +7,21 @@ class Host::SpacesController < ApplicationController
     @space = Space.new(space_params)
     @space.host_id = current_host.id
     @space.save
-    redirect_to root_path
+    redirect_to host_space_path(@space.id)
   end
-  
+
   def show
     @space = Space.find(params[:id])
+  end
+
+  def edit
+    @space = Space.find(params[:id])
+  end
+
+  def update
+    @space = Space.find(params[:id])
+    @space.update(space_params)
+    redirect_to host_space_path(@space.id)
   end
 
 

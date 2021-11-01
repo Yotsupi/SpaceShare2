@@ -1,3 +1,7 @@
-<h2>作ったスペースたち</h2>
-
+<%= attachment_image_tag @space, :image, :fill, 500, 500 %>
+<br>
 <%= @space.name %>
+<br>
+<%= @space.address %>
+<br>
+<%= link_to "編集する", edit_host_space_path(@space.id), class:"btn btn-success" %>

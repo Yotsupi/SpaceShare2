@@ -1,0 +1,31 @@
+<h2>編集〜</h2>
+<%= form_with model:@space, url: host_space_path, local: true do |f| %>
+  <%= f.label "スペース名称" %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.label "住所" %>
+  <%= f.text_field :address %>
+  <br>
+  <%= f.label "詳細説明" %>
+  <%= f.text_area :detail %>
+  <br>
+  <%= f.label "収容人数" %>
+  <%= f.text_field :capacity %>
+  <br>
+  <%= f.label "利用可能開始時間" %>
+  <%= f.time_field :open_time %>
+  <br>
+  <%= f.label "利用可能終了時間" %>
+  <%= f.time_field :close_time %>
+  <br>
+  <%= f.label "１時間あたり料金" %>
+  <%= f.text_field :hourly_rate %>
+  <br>
+  <%= f.label "施設写真" %>
+  <%= f.attachment_field :image %>
+  <br>
+  <%= f.radio_button :is_active, :true %>公開中 <%= f.radio_button :is_active, :false %>非公開
+  <br>
+  <%= f.submit '更新', class:"btn btn-success" %>
+
+<% end %>
