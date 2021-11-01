@@ -1,4 +1,4 @@
-スペースを作ろうで
+<h2>スペースを作ろうで</h2>
 <%= form_with model:@space, url: host_spaces_path, local: true do |f| %>
   <%= f.label "スペース名称" %>
   <%= f.text_field :name %>
@@ -7,7 +7,7 @@
   <%= f.text_field :address %>
   <br>
   <%= f.label "詳細説明" %>
-  <%= f.text_area :address %>
+  <%= f.text_area :detail %>
   <br>
   <%= f.label "収容人数" %>
   <%= f.text_field :capacity %>
@@ -23,5 +23,7 @@
   <br>
   <%= f.label "施設写真" %>
   <%= f.attachment_field :image %>
+  <br>
+  <%= f.submit 'スペース作成' %>
 
 <% end %>
