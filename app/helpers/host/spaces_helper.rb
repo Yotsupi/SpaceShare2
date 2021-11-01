@@ -1,0 +1,2 @@
+module Host::SpacesHelper
+end

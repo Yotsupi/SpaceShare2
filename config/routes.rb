@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :hosts, controller{
-    
+  devise_for :hosts, controllers: {
+    sessions:      'hosts/sessions',
+    passwords:     'hosts/passwords',
+    registrations: 'hosts/registrations'
   }
-  devise_for :guests
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: ''
+  devise_for :guests, controllers: {
+    sessions:      'guests/sessions',
+    passwords:     'guests/passwords',
+    registrations: 'guests/registrations'
+  }
+
+  root to: 'homes#top'
   
+  namespace :host do
+    resources :spaces, except:[:destroy]
+  end
+    
 end
