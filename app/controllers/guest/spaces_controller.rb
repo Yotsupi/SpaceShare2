@@ -4,5 +4,13 @@ class Guest::SpacesController < ApplicationController
   end
 
   def show
+    @space = Space.find(params[:id])
   end
+
+  private
+  def space_params
+    params.require(:space).permit(:id)
+  end
+
+
 end
