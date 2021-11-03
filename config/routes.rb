@@ -15,5 +15,9 @@ Rails.application.routes.draw do
   namespace :host do
     resources :spaces, except:[:destroy]
   end
+  
+  namespace :guest do
+    resources :spaces, only:[:index, :show]
+  end
     
 end
