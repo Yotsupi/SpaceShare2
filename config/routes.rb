@@ -11,13 +11,15 @@ Rails.application.routes.draw do
   }
 
   root to: 'homes#top'
-  
+
   namespace :host do
     resources :spaces, except:[:destroy]
   end
-  
+
   namespace :guest do
-    resources :spaces, only:[:index, :show]
+    resources :spaces, only:[:index, :show] do
+      resources :reservations,
+    end
   end
-    
+
 end
