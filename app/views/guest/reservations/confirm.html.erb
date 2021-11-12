@@ -23,6 +23,7 @@
 <%# end %>
 <%= form_with model: @reservation, url: guest_space_reservations_path, local: true do |f| %>
   <%= f.hidden_field :guest_id, value: current_guest.id %>
+  <%= f.hidden_field :space_id, value: @space.id %>
   <%= f.hidden_field :people, value: @reservation.people %>
   <%= f.hidden_field :use_date, value: @reservation.use_date %>
   <%= f.hidden_field :start_time, value: @reservation.start_time %>

@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     resources :spaces, only:[:index, :show] do
       post "/reservations/confirm" => "reservations#confirm", as: 'confirm'
       get "/reservations/thanks" => "reservations#thanks", as: 'thanks'
+      patch "/reservations/cancel" => "reservations#cancel", as: 'cancel'
       resources :reservations, except:[:edit, :index]
     end
     get "/reservations" => "reservations#index", as: 'reservations'
