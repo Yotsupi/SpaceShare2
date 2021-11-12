@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   namespace :guest do
     resources :spaces, only:[:index, :show] do
       resources :reservations, except:[:edit]
-      post "/spaces/:space_id/reservations/confirm" => "guest/reservations#confirm", as: 'confirm'
-      get "/spaces/:space_id/reservations/thanks" => "guest/reservations#thanks", as: 'thanks'
+      post "/reservations/confirm" => "reservations#confirm", as: 'confirm'
+      get "/reservations/thanks" => "reservations#thanks", as: 'thanks'
     end
   end
 

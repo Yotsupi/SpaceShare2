@@ -13,10 +13,10 @@
   <%= f.text_field :capacity %>
   <br>
   <%= f.label "利用可能開始時間" %>
-  <%= f.time_field :open_time %>
+  <%= f.time_select :open_time, minute_step: 30 %>
   <br>
   <%= f.label "利用可能終了時間" %>
-  <%= f.time_field :close_time %>
+  <%= f.time_select :close_time, minute_step: 30 %>
   <br>
   <%= f.label "１時間あたり料金" %>
   <%= f.text_field :hourly_rate %>
