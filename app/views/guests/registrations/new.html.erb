@@ -1,6 +1,6 @@
 <div class="container">
 <h2>ゲスト新規登録</h2>
-<%= form_with model:@guest, url: guest_registration_path, local: true  do |f| %>
+<%= form_with model:@guest, url: new_guest_path, local: true  do |f| %>
   <%= render "guests/shared/error_messages", resource: resource %>
 
   <div class="row">

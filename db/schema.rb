@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_12_053159) do
+ActiveRecord::Schema.define(version: 2021_11_12_054727) do
 
   create_table "guests", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 2021_11_12_053159) do
     t.string "people"
     t.time "start_time"
     t.time "end_time"
-    t.integer "usage_time"
     t.integer "hourly_rate"
     t.integer "billing_amount"
     t.integer "payment"

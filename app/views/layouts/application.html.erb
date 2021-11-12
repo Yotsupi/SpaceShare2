@@ -31,12 +31,10 @@
               <%= link_to "ログアウト", destroy_guest_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              予約一覧
-              <%#= link_to 'スペース一覧', host_spaces_path, class: 'nav-link text-dark' %>
+              <%= link_to '予約一覧', guest_reservations_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              マイページ
-              <%#= link_to 'マイページ', new_host_space_path, class: 'nav-link text-dark' %>
+              <%= link_to 'マイページ', guests_path, class: 'nav-link text-dark' %>
             </li>
             <% else %>
             <li class="nav-item">

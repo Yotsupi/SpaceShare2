@@ -7,10 +7,14 @@ Rails.application.routes.draw do
   devise_for :guests, controllers: {
     sessions:      'guests/sessions',
     passwords:     'guests/passwords',
-    registrations: 'guests/registrations'
-  }
+  },skip: [:registrations]
+  devise_scope :guest do
+    get "/guests/sign_up" => "guests/registrations#new"
+    post "/guests" => "guests/registrations#create", as: 'new_guest'
+  end
 
   root to: 'homes#top'
+  resource :guests, only:[:show, :edit, :update]
 
   namespace :host do
     resources :spaces, except:[:destroy]
@@ -18,10 +22,11 @@ Rails.application.routes.draw do
 
   namespace :guest do
     resources :spaces, only:[:index, :show] do
-      resources :reservations, except:[:edit]
       post "/reservations/confirm" => "reservations#confirm", as: 'confirm'
       get "/reservations/thanks" => "reservations#thanks", as: 'thanks'
+      resources :reservations, except:[:edit, :index]
     end
+    get "/reservations" => "reservations#index", as: 'reservations'
   end
 
 end
