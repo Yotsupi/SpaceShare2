@@ -5,7 +5,7 @@
 <%= reservation.space.name %>
 <br>
 【利用日時】<br>
-<%= reservation.use_date %>
+<%= reservation.start_time.strftime('%m月%d日') %>
 <br>
 <%= reservation.start_time.strftime('%H:%M') %>〜<%= reservation.end_time.strftime('%H:%M') %>
 <br>

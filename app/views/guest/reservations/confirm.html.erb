@@ -4,7 +4,7 @@
 <%= @space.name %>
 <br>
 【利用日時】<br>
-<%= @reservation.use_date %>
+<%= @reservation.start_time.strftime("%Y年%m月%d日") %>
 <br>
 <%= @reservation.start_time.strftime('%H:%M') %>〜<%= @reservation.end_time.strftime('%H:%M') %>
 <br>
@@ -25,7 +25,6 @@
   <%= f.hidden_field :guest_id, value: current_guest.id %>
   <%= f.hidden_field :space_id, value: @space.id %>
   <%= f.hidden_field :people, value: @reservation.people %>
-  <%= f.hidden_field :use_date, value: @reservation.use_date %>
   <%= f.hidden_field :start_time, value: @reservation.start_time %>
   <%= f.hidden_field :end_time, value: @reservation.end_time %>
   <%= f.hidden_field :hourly_rate, value: @space.hourly_rate %>

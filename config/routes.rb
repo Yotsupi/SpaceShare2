@@ -18,13 +18,14 @@ Rails.application.routes.draw do
 
   namespace :host do
     resources :spaces, except:[:destroy]
+    resources :reservations, only:[:index, :show, :edit, :update]
   end
 
   namespace :guest do
     resources :spaces, only:[:index, :show] do
       post "/reservations/confirm" => "reservations#confirm", as: 'confirm'
       get "/reservations/thanks" => "reservations#thanks", as: 'thanks'
-      patch "/reservations/cancel" => "reservations#cancel", as: 'cancel'
+      patch "/reservations/cancel/:id" => "reservations#cancel", as: 'cancel'
       resources :reservations, except:[:edit, :index]
     end
     get "/reservations" => "reservations#index", as: 'reservations'

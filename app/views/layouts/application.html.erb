@@ -20,8 +20,7 @@
               <%= link_to "ログアウト", destroy_host_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              予約一覧
-              <%#= link_to 'スペース一覧', host_spaces_path, class: 'nav-link text-dark' %>
+              <%= link_to '予約一覧', host_reservations_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
               <%= link_to '新規スペース登録', new_host_space_path, class: 'nav-link text-dark' %>
