@@ -1,5 +1,6 @@
 class Space < ApplicationRecord
   has_many :reservations, dependent: :destroy
+  has_many :contacts, dependent: :destroy
   belongs_to :host
   attachment :image
   validate :start_finish_check

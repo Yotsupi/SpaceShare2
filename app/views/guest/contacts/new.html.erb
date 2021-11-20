@@ -1,0 +1,27 @@
+<div class="container">
+  <%= form_with model:@contact, url: guest_space_contacts_path do |f| %>
+    <div class="form-group">
+      <%= f.label :name, 'お名前' %>
+      <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :phone_number, 'お電話番号' %>
+      <%= f.text_field :phone_number, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email, '返信先アドレス' %>
+      <%= f.text_field :email, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :message, 'メッセージ' %>
+      <%= f.text_area :message, size: '10x10', class: 'form-control' %>
+    </div>
+      <%= f.hidden_field :space_id, value: @space.id %>
+    <div>
+      <%= f.submit '送信' %>
+    </div>
+  <% end %>
+</div>

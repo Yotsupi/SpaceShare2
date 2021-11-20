@@ -28,6 +28,8 @@ Rails.application.routes.draw do
       get '/reservations/thanks' => 'reservations#thanks', as: 'thanks'
       patch '/reservations/cancel/:id' => 'reservations#cancel', as: 'cancel'
       resources :reservations, except: %i[edit index]
+      get '/contact/send', to: 'contacts#send', as: 'send'
+      resources :contacts, only: [:new, :create]
     end
     get '/reservations' => 'reservations#index', as: 'reservations'
   end
