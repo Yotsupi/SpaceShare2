@@ -1,5 +1,11 @@
 <div class="container">
   <h2>スペース新規登録</h2>
+  <% if @space.errors.any? %>
+  <%= @space.errors.count %>件のエラーが発生しました
+  <% @space.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+  <% end %>
   <%= form_with model:@space, url: host_spaces_path, local: true do |f| %>
   <table class="table table-borderless table-sm">
     <tr>

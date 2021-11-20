@@ -7,8 +7,11 @@ class Host::SpacesController < ApplicationController
   def create
     @space = Space.new(space_params)
     @space.host_id = current_host.id
-    @space.save
-    redirect_to host_space_path(@space.id)
+    if @space.save
+      redirect_to host_space_path(@space.id)
+    else
+      render :new
+    end
   end
 
   def index
