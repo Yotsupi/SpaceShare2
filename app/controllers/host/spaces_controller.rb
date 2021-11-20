@@ -1,4 +1,5 @@
 class Host::SpacesController < ApplicationController
+  before_action :authenticate_host!
   def new
     @space = Space.new
   end

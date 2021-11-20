@@ -32,4 +32,10 @@ class Reservation < ApplicationRecord
     end
   end
 
+  def date_check
+    if self.start_time.date =! end_time.date
+      errors.add(:end_time, "は利用開始日時と同じ日付を選択してください")
+    end
+  end
+
 end

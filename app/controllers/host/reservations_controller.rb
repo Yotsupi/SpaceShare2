@@ -1,4 +1,5 @@
 class Host::ReservationsController < ApplicationController
+  before_action :authenticate_host!
 
   def index
     @space = Space.find(params[:space_id])

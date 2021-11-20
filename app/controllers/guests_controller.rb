@@ -1,4 +1,5 @@
 class GuestsController < ApplicationController
+  
   def show
     @guest = current_guest
   end

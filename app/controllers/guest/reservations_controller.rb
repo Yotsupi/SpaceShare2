@@ -1,4 +1,6 @@
 class Guest::ReservationsController < ApplicationController
+  before_action :authenticate_guest!
+
   def new
     @space = Space.find(params[:space_id])
     @reservation = Reservation.new
