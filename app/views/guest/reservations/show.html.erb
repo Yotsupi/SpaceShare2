@@ -6,4 +6,4 @@
 連絡先：Tel <%= @reservation.space.host.phone_number %>
 
 <%= link_to "予約一覧に戻る", guest_reservations_path %>
-<%= link_to "この予約をキャンセルする", guest_space_cancel_path(@reservation.space_id), method: :patch, "data-confirm" => "本当にキャンセルしますか？", class:"btn btn-sm btn-danger" %>
+<%= link_to "この予約をキャンセルする", guest_space_cancel_path(@reservation.id), method: :patch, "data-confirm" => "本当にキャンセルしますか？", class:"btn btn-sm btn-danger" %>

@@ -3,13 +3,16 @@
 
 <br>
 <% @reservations.each do |reservation| %>
-  <div class="card mb-3 border-0" style="max-width: 720px;">
+  <div class="card mb-3" style="max-width: 720px;">
     <div class="row no-gutters">
       <div class="col-md-7 m-auto text-center">
         <%= attachment_image_tag reservation.space, :image, :fill, 320, 240 %>
       </div>
       <div class="col-md-5">
         <div class="card-body">
+          <% if reservation.is_active == false %>
+          <p class="text-danger font-weight-bold">キャンセル済み</p>
+          <% end %>
           <h4 class="card-title"><%= reservation.space.name %></h4>
           <p class="card-text">
             【利用日時】<br>

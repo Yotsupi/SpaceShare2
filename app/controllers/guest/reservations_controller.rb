@@ -22,7 +22,7 @@ class Guest::ReservationsController < ApplicationController
   end
 
   def index
-    @reservations = Reservation.all.where(guest_id: current_guest.id).where(is_active: 'true')
+    @reservations = Reservation.all.where(guest_id: current_guest.id)
   end
 
   def show
@@ -31,14 +31,14 @@ class Guest::ReservationsController < ApplicationController
 
   def cancel
     reservation = Reservation.find(params[:id])
-    reservation.update(is_active: false )
-    redirect_to root_path
+    reservation.update(is_active: false)
+    redirect_to guest_reservations_path
   end
 
   private
 
   def reservation_params
-    params.require(:reservation).permit(:guest_id,:space_id, :people,:use_date, :start_time, :end_time, :hourly_rate)
+    params.require(:reservation).permit(:guest_id,:space_id, :people,:use_date, :start_time, :end_time, :hourly_rate, :is_active)
   end
 
 end
