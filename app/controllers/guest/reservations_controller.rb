@@ -7,6 +7,9 @@ class Guest::ReservationsController < ApplicationController
   def confirm
     @reservation = Reservation.new(reservation_params)
     @space = Space.find(params[:space_id])
+    if @reservation.invalid?
+			render :new
+		end
   end
 
   def create

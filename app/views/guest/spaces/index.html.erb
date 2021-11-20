@@ -1,7 +1,35 @@
-<h1>Space</h1>
+<div class="container">
+<h1 class="mb-3">スペース一覧</h1>
 
-<% @spaces.each do |space| %>
-  <%= space.name %>
-  <%= space.address %>
-  <%= link_to "予約する", new_guest_space_reservation_path(space.id)  %>
-<% end %>
+  <% @spaces.each do |space| %>
+    <div class="card mb-3" style="max-width: 720px;">
+      <div class="row no-gutters">
+        <div class="col-md-7 m-auto text-center">
+          <%= attachment_image_tag space, :image, :fill, 320, 240 %>
+        </div>
+        <div class="col-md-5">
+          <div class="card-body">
+            <h4 class="card-title font-weight-bold"><%= space.name %></h4>
+            <p class="card-text">
+              <i class="fas fa-users"></i>
+              1 ~ <%= space.capacity %>名
+            </p>
+            <p class="card-text"><i class="fas fa-coins"></i> <%= space.hourly_rate.to_s(:delimited) %>円 / 時間</p>
+            <p class="card-text">
+              <i class="fas fa-clock"></i>
+              <%= space.open_time.strftime("%H:%M") %>　〜　<%= space.close_time.strftime("%H:%M") %>
+            </p>
+            <p class="card-text">
+            <i class="fas fa-map-marker-alt"></i>
+            <%= space.address %>
+            </p>
+            <p class="card-text">
+              <%= link_to "詳細を見る", guest_space_path(space.id), class:'btn btn-sm btn-primary'  %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <%= attachment_image_tag @space, :image, :fill, 320, 240 %>
+  </div>
+  <div class="about">
+    <h4>スペースについて</h4>
+    <p><%= @space.detail %></p>
+  </div>
+  <div class="row">
+    <div class="col-6 text-center">
+      <%= link_to "スペース一覧へ戻る", guest_spaces_path, class:'btn btn-sm btn-secondary'  %>
+    </div>
+    <div class="col-6 text-center">
+      <%= link_to "このスペースを予約する", new_guest_space_reservation_path(@space.id), class:'btn btn-sm btn-primary'  %>
+    </div>
+  </div>
+</div>
