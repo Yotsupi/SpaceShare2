@@ -1,17 +1,28 @@
-予約内容確認
+<div class="container">
+  <h3 class="font-weight-bold">スペース予約</h3>
 <br>
-【利用スペース】
-<%= @space.name %>
-<br>
-【利用日時】<br>
-<%= @reservation.start_time.strftime("%Y年%m月%d日") %>
-<br>
-<%= @reservation.start_time.strftime('%H:%M') %>〜<%= @reservation.end_time.strftime('%H:%M') %>
-<br>
-【利用時間】
-<%= @reservation.usage_time %>時間
-【利用料金】
-<%= @space.hourly_rate * @reservation.usage_time  %>
+<table class="table table-borderless ml-2">
+  <tbody class="row">
+    <td>【利用スペース】</td>
+    <td><%= @space.name %></td>
+  </tbody>
+  <tbody class="row">
+    <td>【利用日時】</td>
+    <td>
+      <%= @reservation.start_time.strftime("%Y年%m月%d日") %>
+      <%= @reservation.start_time.strftime('%H:%M') %>〜<%= @reservation.end_time.strftime('%H:%M') %>
+    </td>
+  </tbody>
+
+  <tbody class="row">
+    <td>【利用時間】</td>
+    <td><%= @reservation.usage_time %>時間</td>
+  </tbody>
+  <tbody class="row">
+    <td>【利用料金】</td>
+    <td><%= (@space.hourly_rate * @reservation.usage_time).floor.to_s(:delimited) %>円</td>
+  </tbody>
+</table>
 
 <br>
 <%#= form_for @reservation, url: new_guest_space_reservation_path do |f| %>
@@ -30,4 +41,6 @@
   <%= f.hidden_field :hourly_rate, value: @space.hourly_rate %>
   <%= f.submit "予約を確定する", class: "btn btn-success" %>
 <% end %>
+
+</div>
 

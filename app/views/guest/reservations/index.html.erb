@@ -1,18 +1,28 @@
-【予約一覧】
+<div class="container">
+<h4 class="font-weight-bold">【予約一覧】</h4>
+
 <br>
 <% @reservations.each do |reservation| %>
-【利用スペース】
-<%= reservation.space.name %>
-<br>
-【利用日時】<br>
-<%= reservation.start_time.strftime('%m月%d日') %>
-<br>
-<%= reservation.start_time.strftime('%H:%M') %>〜<%= reservation.end_time.strftime('%H:%M') %>
-<br>
-【利用時間】
-<%= reservation.usage_time %>時間
-【利用料金】
-<%= reservation.billing_amount %>
-<br>
-<%= link_to "予約詳細", guest_space_reservation_path(reservation.space_id,reservation.id), class: "btn btn-sm btn-primary" %>
+  <div class="card mb-3 border-0" style="max-width: 720px;">
+    <div class="row no-gutters">
+      <div class="col-md-7 m-auto text-center">
+        <%= attachment_image_tag reservation.space, :image, :fill, 320, 240 %>
+      </div>
+      <div class="col-md-5">
+        <div class="card-body">
+          <h4 class="card-title"><%= reservation.space.name %></h4>
+          <p class="card-text">
+            【利用日時】<br>
+            <%= reservation.start_time.strftime('%m月%d日') %> <%= reservation.start_time.strftime('%H:%M') %>〜<%= reservation.end_time.strftime('%H:%M') %>
+          </p>
+          <p class="card-text">
+            【利用人数】<br>
+            <%= reservation.people %>名
+          </p>
+          <%= link_to "予約詳細を見る", guest_space_reservation_path(reservation.space_id,reservation.id), class: "btn btn-sm btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
+</div>
