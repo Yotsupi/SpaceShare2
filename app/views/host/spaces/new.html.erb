@@ -2,8 +2,9 @@
   <h2>スペース新規登録</h2>
   <% if @space.errors.any? %>
   <%= @space.errors.count %>件のエラーが発生しました
+  <br>
   <% @space.errors.full_messages.each do |message| %>
-    <%= message %>
+    <%= message %><br>
   <% end %>
   <% end %>
   <%= form_with model:@space, url: host_spaces_path, local: true do |f| %>
