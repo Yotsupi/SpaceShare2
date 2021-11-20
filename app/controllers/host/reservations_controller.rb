@@ -1,7 +1,8 @@
 class Host::ReservationsController < ApplicationController
 
   def index
-    @reservations = Reservation.all.where(:space_id == params[:space_id])
+    @space = Space.find(params[:space_id])
+    @reservations = Reservation.all.where(space_id: params[:space_id]).where(is_active: true)
   end
 
   def show
