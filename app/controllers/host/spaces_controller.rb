@@ -10,6 +10,10 @@ class Host::SpacesController < ApplicationController
     redirect_to host_space_path(@space.id)
   end
 
+  def index
+    @spaces = Space.all.where(host_id: current_host.id)
+  end
+
   def show
     @space = Space.find(params[:id])
   end

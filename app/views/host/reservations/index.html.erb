@@ -1,4 +1,5 @@
-スペース
+<%=
+予約一覧
 
 <%= month_calendar events: @reservations do |date, reservations| %>
   <%= date.day %>
@@ -6,7 +7,7 @@
   <% reservations.each do |reservation| %>
     <div>
       <%= reservation.start_time.strftime('%H:%M') %>
-      <%= link_to host_reservation_path(reservation.id) do %>
+      <%= link_to host_space_reservation_path(reservation.space_id,reservation.id) do %>
        <%= reservation.guest.last_name %>
       <% end %>
     </div>

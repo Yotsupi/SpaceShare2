@@ -17,8 +17,9 @@ Rails.application.routes.draw do
   resource :guests, only:[:show, :edit, :update]
 
   namespace :host do
-    resources :spaces, except:[:destroy]
-    resources :reservations, only:[:index, :show, :edit, :update]
+    resources :spaces, except:[:destroy] do
+      resources :reservations, only:[:index, :show, :edit, :update]
+    end
   end
 
   namespace :guest do
