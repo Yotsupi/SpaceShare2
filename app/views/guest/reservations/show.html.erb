@@ -9,19 +9,35 @@
   <table class="table table-borderless">
     <tbody class="row">
       <td>スペース名称：</td>
-      <td><%= @reservation.space.name %></td>
+      <td>
+        <%= link_to guest_space_path(@reservation.space_id), target: :_blank, rel: "noopener noreferrer" do %>
+          <%= @reservation.space.name %>
+        <% end %>
+      </td>
     </tbody>
     <tbody class="row">
       <td>住所：</td>
       <td><%= @reservation.space.address %></td>
     </tbody>
     <tbody class="row">
-      <td>住所：</td>
-      <td><%= @reservation.space.address %></td>
+      <td>ホスト連絡先： </td>
+      <td>Tel  <%= @reservation.space.host.phone_number %></td>
     </tbody>
     <tbody class="row">
-      <td>ホスト連絡先：Tel </td>
-      <td><%= @reservation.space.host.phone_number %></td>
+      <td>利用日時： </td>
+      <td><%= @reservation.start_time.strftime("%Y年%m月%d日 %H:%M") %>〜<%= @reservation.end_time.strftime("%H:%M") %></td>
+    </tbody>
+    <tbody class="row">
+      <td>利用時間： </td>
+      <td><%= @reservation.usage_time %>時間</td>
+    </tbody>
+    <tbody class="row">
+      <td>利用人数： </td>
+      <td><%= @reservation.people %>名</td>
+    </tbody>
+    <tbody class="row">
+      <td>利用料金： </td>
+      <td><%= @reservation.billing_amount.floor.to_s(:delimited) %>円</td>
     </tbody>
   </table>
 
