@@ -9,9 +9,7 @@ class Guest::ReservationsController < ApplicationController
   def confirm
     @reservation = Reservation.new(reservation_params)
     @space = Space.find(params[:space_id])
-    if @reservation.invalid?
-			render :new
-		end
+    render :new if @reservation.invalid?
   end
 
   def create
@@ -20,8 +18,7 @@ class Guest::ReservationsController < ApplicationController
     redirect_to guest_space_thanks_path
   end
 
-  def thanks
-  end
+  def thanks; end
 
   def index
     @reservations = Reservation.all.where(guest_id: current_guest.id)
@@ -40,7 +37,7 @@ class Guest::ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:guest_id,:space_id, :people,:use_date, :start_time, :end_time, :hourly_rate, :is_active, :billing_amount)
+    params.require(:reservation).permit(:guest_id, :space_id, :people, :use_date, :start_time, :end_time, :hourly_rate,
+                                        :is_active, :billing_amount)
   end
-
 end

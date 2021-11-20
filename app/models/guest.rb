@@ -15,5 +15,4 @@ class Guest < ApplicationRecord
     validates :telephone_number
     validates :email
   end
-
 end

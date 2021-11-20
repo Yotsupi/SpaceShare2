@@ -4,8 +4,8 @@ class DeviseCreateGuests < ActiveRecord::Migration[5.2]
   def change
     create_table :guests do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      t.string :email,              null: false, default: ''
+      t.string :encrypted_password, null: false, default: ''
 
       ## Recoverable
       t.string   :reset_password_token
@@ -38,8 +38,7 @@ class DeviseCreateGuests < ActiveRecord::Migration[5.2]
       t.string :postal_code, null: false
       t.string :address, null: false
       t.string :telephone_number, null: false
-      t.boolean :is_active, null: false, default: "true"
-
+      t.boolean :is_active, null: false, default: 'true'
 
       t.timestamps null: false
     end

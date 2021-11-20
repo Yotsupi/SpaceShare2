@@ -14,9 +14,6 @@ class Space < ApplicationRecord
   end
 
   def start_finish_check
-    if self.open_time >= self.close_time
-      errors.add(:close_time, "利用可能終了時刻は利用可能開始時刻より遅い時間を選択してください")
-    end
+    errors.add(:close_time, '利用可能終了時刻は利用可能開始時刻より遅い時間を選択してください') if open_time >= close_time
   end
-
 end

@@ -7,7 +7,7 @@ class Reservation < ApplicationRecord
   validate :start_check
 
   def usage_time
-   (end_time - start_time)/3600
+    (end_time - start_time) / 3600
   end
 
   def billing_amount
@@ -15,27 +15,14 @@ class Reservation < ApplicationRecord
   end
 
   def date_before_start
-    if start_time < Date.today
-      errors.add(:start_time, "は過去の日付を選択できません")
-    end
+    errors.add(:start_time, 'は過去の日付を選択できません') if start_time < Date.today
   end
 
   def start_finish_check
-    if self.start_time >= self.end_time
-      errors.add(:end_time, "利用終了時刻は開始時刻より遅い時間を選択してください")
-    end
+    errors.add(:end_time, '利用終了時刻は開始時刻より遅い時間を選択してください') if start_time >= end_time
   end
 
   def start_check
-    if self.start_time < Time.now
-      errors.add(:start_time, "は現在の日時より遅い時間を選択してください")
-    end
+    errors.add(:start_time, 'は現在の日時より遅い時間を選択してください') if start_time < Time.now
   end
-
-  def date_check
-    if self.start_time.date =! end_time.date
-      errors.add(:end_time, "は利用開始日時と同じ日付を選択してください")
-    end
-  end
-
 end

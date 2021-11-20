@@ -3,13 +3,12 @@ class ChangeDatatypeOfReservations < ActiveRecord::Migration[5.2]
     change_column :reservations, :start_time, :datetime
     change_column :reservations, :end_time, :datetime
   end
-  
+
   def up
     remove_column :reservations, :use_date
-      end
+  end
 
   def down
     add_column :reservations, :use_date, :datetimte
   end
-  
 end

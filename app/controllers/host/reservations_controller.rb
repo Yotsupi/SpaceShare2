@@ -10,10 +10,7 @@ class Host::ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
   end
 
-  def edit
-  end
+  def edit; end
 
-  def update
-  end
-
+  def update; end
 end

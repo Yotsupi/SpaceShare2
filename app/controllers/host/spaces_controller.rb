@@ -32,10 +32,10 @@ class Host::SpacesController < ApplicationController
     redirect_to host_space_path(@space.id)
   end
 
-
   private
-  def space_params
-    params.require(:space).permit(:name, :address, :detail, :capacity, :open_time, :close_time, :hourly_rate, :image, :is_active)
-  end
 
+  def space_params
+    params.require(:space).permit(:name, :address, :detail, :capacity, :open_time, :close_time, :hourly_rate, :image,
+                                  :is_active)
+  end
 end

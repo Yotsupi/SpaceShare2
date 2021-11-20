@@ -4,8 +4,8 @@ class DeviseCreateHosts < ActiveRecord::Migration[5.2]
   def change
     create_table :hosts do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      t.string :email,              null: false, default: ''
+      t.string :encrypted_password, null: false, default: ''
 
       ## Recoverable
       t.string   :reset_password_token
@@ -33,7 +33,7 @@ class DeviseCreateHosts < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
       t.string :name, null: false
       t.string :phone_number, null: false
-      t.boolean :is_active, null: false, default: "true"
+      t.boolean :is_active, null: false, default: 'true'
 
       t.timestamps null: false
     end

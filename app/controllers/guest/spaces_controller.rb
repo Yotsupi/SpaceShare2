@@ -8,9 +8,8 @@ class Guest::SpacesController < ApplicationController
   end
 
   private
+
   def space_params
     params.require(:space).permit(:id)
   end
-
-
 end
