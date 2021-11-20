@@ -1,31 +1,43 @@
 <div class="container">
   <h2>スペース新規登録</h2>
   <%= form_with model:@space, url: host_spaces_path, local: true do |f| %>
-    <%= f.label "スペース名称" %>
-    <%= f.text_field :name %>
-    <br>
-    <%= f.label "住所" %>
-    <%= f.text_field :address %>
-    <br>
-    <%= f.label "詳細説明" %>
-    <%= f.text_area :detail %>
-    <br>
-    <%= f.label "収容人数" %>
-    <%= f.text_field :capacity %>
-    <br>
-    <%= f.label "利用可能開始時間" %>
-    <%= f.time_select :open_time, minute_step: 30 %>
-    <br>
-    <%= f.label "利用可能終了時間" %>
-    <%= f.time_select :close_time, minute_step: 30 %>
-    <br>
-    <%= f.label "１時間あたり料金" %>
-    <%= f.text_field :hourly_rate %>
-    <br>
-    <%= f.label "施設写真" %>
-    <%= f.attachment_field :image %>
-    <br>
-    <%= f.submit 'スペース作成' %>
-
+  <table class="table table-borderless table-sm">
+    <tr>
+      <td><%= f.label "スペース名称" %></td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label "住所" %></td>
+      <td><%= f.text_field :address %></td>
+    </tr>
+    <tr>
+      <td><%= f.label "詳細説明" %></td>
+      <td><%= f.text_area :detail %></td>
+    </tr>
+    <tr>
+      <td><%= f.label "収容人数" %></td>
+      <td><%= f.text_field :capacity %></td>
+    </tr>
+    <tr>
+      <td><%= f.label "利用可能開始時間" %></td>
+      <td><%= f.time_select :open_time, minute_step: 30 %></td>
+    </tr>
+    <tr>
+      <td><%= f.label "利用可能終了時間" %></td>
+      <td><%= f.time_select :close_time, minute_step: 30 %></td>
+    </tr>
+    <tr>
+      <td><%= f.label "１時間あたり料金" %></td>
+      <td><%= f.text_field :hourly_rate %></td>
+    </tr>
+    <tr>
+      <td><%= f.label "施設写真" %></td>
+      <td><%= f.attachment_field :image %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= f.submit 'スペース作成', class:'btn btn-success' %></td>
+    </tr>
+  </table>
   <% end %>
 </div>

@@ -1,2 +1,39 @@
-<%= @reservation.space.name %>
-<%= @reservation.is_active %>
+<div class="container">
+  <h3 class="font-weight-bold">
+    【予約詳細】
+  </h3>
+
+  <table class="table table-borderless">
+    <tbody class="row">
+      <td>予約者名：</td>
+      <td><%= @reservation.guest.last_name %> <%= @reservation.guest.first_name %></td>
+    </tbody>
+    <tbody class="row">
+      <td>ゲスト連絡先： </td>
+      <td>Tel:  <%= @reservation.guest.telephone_number %></td>
+      <td>Email: <%= @reservation.guest.email %></td>
+    </tbody>
+    <tbody class="row">
+      <td>利用日時： </td>
+      <td><%= @reservation.start_time.strftime("%Y年%m月%d日 %H:%M") %>〜<%= @reservation.end_time.strftime("%H:%M") %></td>
+    </tbody>
+    <tbody class="row">
+      <td>利用時間： </td>
+      <td><%= @reservation.usage_time %>時間</td>
+    </tbody>
+    <tbody class="row">
+      <td>利用人数： </td>
+      <td><%= @reservation.people %>名</td>
+    </tbody>
+    <tbody class="row">
+      <td>利用料金： </td>
+      <td><%= @reservation.billing_amount.floor.to_s(:delimited) %>円</td>
+    </tbody>
+  </table>
+
+  <div class="row">
+  <div class="col-3">
+    <%= link_to "予約一覧に戻る", host_space_reservations_path(@reservation.space_id), class:"btn btn-sm btn-success" %>
+  </div>
+  </div>
+</div>
