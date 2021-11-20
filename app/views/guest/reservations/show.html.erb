@@ -1,9 +1,38 @@
-【予約詳細】
-<%= @reservation.space.name %>
-<br>
-住所：<%= @reservation.space.address %>
-<br>
-連絡先：Tel <%= @reservation.space.host.phone_number %>
+<div class="container">
+  <h3 class="font-weight-bold">
+    【予約詳細】
+  </h3>
+  <% if @reservation.is_active == false %>
+    <p class="text-danger">この予約はキャンセル済です。</p>
+  <% end %>
 
-<%= link_to "予約一覧に戻る", guest_reservations_path %>
-<%= link_to "この予約をキャンセルする", guest_space_cancel_path(@reservation.id), method: :patch, "data-confirm" => "本当にキャンセルしますか？", class:"btn btn-sm btn-danger" %>
+  <table class="table table-borderless">
+    <tbody class="row">
+      <td>スペース名称：</td>
+      <td><%= @reservation.space.name %></td>
+    </tbody>
+    <tbody class="row">
+      <td>住所：</td>
+      <td><%= @reservation.space.address %></td>
+    </tbody>
+    <tbody class="row">
+      <td>住所：</td>
+      <td><%= @reservation.space.address %></td>
+    </tbody>
+    <tbody class="row">
+      <td>ホスト連絡先：Tel </td>
+      <td><%= @reservation.space.host.phone_number %></td>
+    </tbody>
+  </table>
+
+  <div class="row">
+  <div class="col-3">
+    <%= link_to "予約一覧に戻る", guest_reservations_path, class:"btn btn-sm btn-success" %>
+  </div>
+  <div class="col-3">
+  <% if @reservation.is_active == true %>
+    <%= link_to "この予約をキャンセルする", guest_space_cancel_path(@reservation.id), method: :patch, "data-confirm" => "本当にキャンセルしますか？", class:"btn btn-sm btn-danger" %>
+  <% end %>
+  </div>
+  </div>
+</div>
