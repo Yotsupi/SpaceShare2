@@ -1,13 +1,20 @@
 class Reservation < ApplicationRecord
   belongs_to :guest
   belongs_to :space
-  validates :start_time, uniqueness: { message: 'は他のユーザーが予約しています' }
+  validates :use_date, uniqueness: {scope: [:space_id], message: 'は他のユーザーが予約しています' }
   validate :date_before_start
   validate :start_finish_check
-  validate :start_check
+
+  def start_time
+    use_date.midnight.since(begin_time.seconds_since_midnight)
+  end
+
+  def end_time
+    use_date.midnight.since(finish_time.seconds_since_midnight)
+  end
 
   def usage_time
-    (end_time - start_time) / 3600
+    (finish_time - begin_time) / 3600
   end
 
   def billing_amount
@@ -15,14 +22,11 @@ class Reservation < ApplicationRecord
   end
 
   def date_before_start
-    errors.add(:start_time, 'は過去の日付を選択できません') if start_time < Date.today
+    errors.add(:use_date, 'は過去の日付を選択できません') if use_date < Date.today
   end
 
   def start_finish_check
-    errors.add(:end_time, '利用終了時刻は開始時刻より遅い時間を選択してください') if start_time >= end_time
+    errors.add(:finish_time, '利用終了時刻は開始時刻より遅い時間を選択してください') if begin_time >= finish_time
   end
 
-  def start_check
-    errors.add(:start_time, 'は現在の日時より遅い時間を選択してください') if start_time < Time.now
-  end
 end

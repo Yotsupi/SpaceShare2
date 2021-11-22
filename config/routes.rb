@@ -29,7 +29,7 @@ Rails.application.routes.draw do
       patch '/reservations/cancel/:id' => 'reservations#cancel', as: 'cancel'
       resources :reservations, except: %i[edit index]
       get '/contact/send', to: 'contacts#send', as: 'send'
-      resources :contacts, only: [:new, :create]
+      resources :contacts, only: %i[new create]
     end
     get '/reservations' => 'reservations#index', as: 'reservations'
   end

@@ -1,5 +1,4 @@
 class Guest::ContactsController < ApplicationController
-
   def new
     @contact = Contact.new
     @space = Space.find(params[:space_id])
@@ -15,8 +14,7 @@ class Guest::ContactsController < ApplicationController
     end
   end
 
-
   def contact_params
-    params.require(:contact).permit(:email,:name,:phone_number,:subject,:message, :space_id)
+    params.require(:contact).permit(:email, :name, :phone_number, :subject, :message, :space_id)
   end
 end

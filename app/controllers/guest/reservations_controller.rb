@@ -37,7 +37,7 @@ class Guest::ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:guest_id, :space_id, :people, :use_date, :start_time, :end_time, :hourly_rate,
+    params.require(:reservation).permit(:guest_id, :space_id, :people, :use_date, :begin_time, :finish_time, :hourly_rate,
                                         :is_active, :billing_amount)
   end
 end

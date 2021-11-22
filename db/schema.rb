@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_20_145310) do
+ActiveRecord::Schema.define(version: 2021_11_22_144443) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name", null: false
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 2021_11_20_145310) do
   create_table "reservations", force: :cascade do |t|
     t.integer "guest_id"
     t.string "people"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.time "begin_time"
+    t.time "finish_time"
     t.integer "hourly_rate"
     t.integer "billing_amount"
     t.integer "payment"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2021_11_20_145310) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "space_id"
+    t.date "use_date"
   end
 
   create_table "spaces", force: :cascade do |t|
