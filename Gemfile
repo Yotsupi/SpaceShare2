@@ -75,3 +75,6 @@ gem 'jquery-rails'
 gem 'simple_calendar', '~> 2.0'
 
 gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
