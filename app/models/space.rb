@@ -9,7 +9,6 @@ class Space < ApplicationRecord
     validates :name
     validates :address
     validates :detail
-    validates :image_id
     validates :capacity
     validates :hourly_rate
   end
