@@ -52,12 +52,14 @@
           <%= @space.host.name %>
         </div>
       </div>
+      <% unless host_signed_in? %>
       <div class="row mb-3">
         <div class="col-3"></div>
         <div class="col-6">
           <%= link_to "ホストに問い合わせる", new_guest_space_contact_path(@space.id) %>
         </div>
       </div>
+      <% end %>
     </div>
   </div>
   <br>
@@ -65,8 +67,10 @@
     <div class="col-6 text-center">
       <%= link_to "スペース一覧へ戻る", guest_spaces_path, class:'btn btn-sm btn-secondary'  %>
     </div>
+    <% unless host_signed_in? %>
     <div class="col-6 text-center">
       <%= link_to "このスペースを予約する", new_guest_space_reservation_path(@space.id), class:'btn btn-sm btn-primary'  %>
     </div>
+    <% end %>
   </div>
 </div>

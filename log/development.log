@@ -1081,3 +1081,118 @@ Processing by HomesController#top as HTML
 Completed 200 OK in 103ms (Views: 101.8ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 126.91.218.199 at 2021-11-24 12:17:42 +0000
+Cannot render console from 126.91.218.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (247.7ms)
+Completed 200 OK in 593ms (Views: 585.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/guests/sign_in" for 126.91.218.199 at 2021-11-24 12:17:44 +0000
+Cannot render console from 126.91.218.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Guests::SessionsController#new as HTML
+  Rendering guests/sessions/new.html.erb within layouts/application
+  Rendered guests/sessions/new.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 220ms (Views: 204.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/guests/sign_up" for 126.91.218.199 at 2021-11-24 12:17:46 +0000
+Cannot render console from 126.91.218.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Guests::RegistrationsController#new as HTML
+  Rendering guests/registrations/new.html.erb within layouts/application
+  Rendered guests/shared/_error_messages.html.erb (0.4ms)
+  Rendered guests/registrations/new.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 167ms (Views: 165.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 126.91.218.199 at 2021-11-26 15:07:22 +0000
+Cannot render console from 126.91.218.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (305.5ms)
+Completed 200 OK in 616ms (Views: 606.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 126.91.218.199 at 2021-11-26 15:07:23 +0000
+Cannot render console from 126.91.218.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 93ms (Views: 92.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/hosts/sign_in" for 126.91.218.199 at 2021-11-26 15:07:27 +0000
+Cannot render console from 126.91.218.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Hosts::SessionsController#new as HTML
+  Rendering hosts/sessions/new.html.erb within layouts/application
+  Rendered hosts/sessions/new.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 127ms (Views: 115.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/hosts/sign_in" for 126.91.218.199 at 2021-11-26 15:07:31 +0000
+Cannot render console from 126.91.218.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Hosts::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R+hVYFrYbLmyDToeWjghQ6s6PFkpodfgbuEkGvtCAdDQqYE25DIWDjPyQLMPCHWrxXYagfl613ihMjmtbaQkvA==", "host"=>{"email"=>"test@test", "password"=>"[FILTERED]"}, "commit"=>"ログイン"}
+  [1m[36mHost Load (0.3ms)[0m  [1m[34mSELECT  "hosts".* FROM "hosts" WHERE "hosts"."email" = ? ORDER BY "hosts"."id" ASC LIMIT ?[0m  [["email", "test@test"], ["LIMIT", 1]]
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Redirected to https://d645a757dfe64bee8bed1a13472a658a.vfs.cloud9.ap-northeast-1.amazonaws.com/
+Completed 302 Found in 329ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 126.91.218.199 at 2021-11-26 15:07:32 +0000
+Cannot render console from 126.91.218.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (2.1ms)
+  [1m[36mHost Load (0.2ms)[0m  [1m[34mSELECT  "hosts".* FROM "hosts" WHERE "hosts"."id" = ? ORDER BY "hosts"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+Completed 200 OK in 125ms (Views: 123.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/guest/spaces" for 126.91.218.199 at 2021-11-26 15:07:33 +0000
+Cannot render console from 126.91.218.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Guest::SpacesController#index as HTML
+  Rendering guest/spaces/index.html.erb within layouts/application
+  [1m[36mSpace Load (0.2ms)[0m  [1m[34mSELECT "spaces".* FROM "spaces" WHERE "spaces"."is_active" = ?[0m  [["is_active", 1]]
+  ↳ app/views/guest/spaces/index.html.erb:4
+  Rendered guest/spaces/index.html.erb within layouts/application (17.7ms)
+  [1m[36mHost Load (0.1ms)[0m  [1m[34mSELECT  "hosts".* FROM "hosts" WHERE "hosts"."id" = ? ORDER BY "hosts"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:18
+Completed 200 OK in 127ms (Views: 110.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/guest/spaces/1" for 126.91.218.199 at 2021-11-26 15:07:35 +0000
+Cannot render console from 126.91.218.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Guest::SpacesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpace Load (1.4ms)[0m  [1m[34mSELECT  "spaces".* FROM "spaces" WHERE "spaces"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guest/spaces_controller.rb:7
+  Rendering guest/spaces/show.html.erb within layouts/application
+  [1m[36mHost Load (0.2ms)[0m  [1m[34mSELECT  "hosts".* FROM "hosts" WHERE "hosts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/guest/spaces/show.html.erb:52
+  [1m[36mHost Load (0.1ms)[0m  [1m[34mSELECT  "hosts".* FROM "hosts" WHERE "hosts"."id" = ? ORDER BY "hosts"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/guest/spaces/show.html.erb:68
+  Rendered guest/spaces/show.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 126ms (Views: 121.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/guest/spaces/1" for 126.91.218.199 at 2021-11-26 15:08:05 +0000
+Cannot render console from 126.91.218.199! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Guest::SpacesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSpace Load (0.2ms)[0m  [1m[34mSELECT  "spaces".* FROM "spaces" WHERE "spaces"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/guest/spaces_controller.rb:7
+  Rendering guest/spaces/show.html.erb within layouts/application
+  [1m[36mHost Load (0.1ms)[0m  [1m[34mSELECT  "hosts".* FROM "hosts" WHERE "hosts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/guest/spaces/show.html.erb:52
+  [1m[36mHost Load (0.1ms)[0m  [1m[34mSELECT  "hosts".* FROM "hosts" WHERE "hosts"."id" = ? ORDER BY "hosts"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/guest/spaces/show.html.erb:55
+  Rendered guest/spaces/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 106ms (Views: 102.5ms | ActiveRecord: 0.3ms)
+
+
