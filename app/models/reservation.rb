@@ -1,7 +1,7 @@
 class Reservation < ApplicationRecord
   belongs_to :guest
   belongs_to :space
-  validates :use_date, uniqueness: {scope: [:space_id], message: 'は他のユーザーが予約しています' }
+  validates :use_date, uniqueness: { scope: [:space_id], message: 'は他のユーザーが予約しています' }
   validate :date_before_start
   validate :start_finish_check
 
@@ -28,5 +28,4 @@ class Reservation < ApplicationRecord
   def start_finish_check
     errors.add(:finish_time, '利用終了時刻は開始時刻より遅い時間を選択してください') if begin_time >= finish_time
   end
-
 end
